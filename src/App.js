@@ -1,5 +1,9 @@
 import React,{useState} from "react"
 import ToDoList from "./ToDoList"
+import "./style.css"
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import IconButton from '@material-ui/core/IconButton';
+import TextField from '@material-ui/core/TextField';
 
 const App =() =>{
 
@@ -31,10 +35,15 @@ const App =() =>{
     <div className='main_div'>
       <div className='center_div'>
         <br/>
+        <div className="items">
         <h1> Todo List</h1>
         <br/>
-        <input value={inputList} type="text" placeholder='Add items' onChange={itemEvent}/>
-        <button onClick={listOfItems} >+</button>
+          <div className="input">
+            <TextField value={inputList}  onChange={itemEvent} color="secondary" label="Add Todos" variant="outlined" />
+            <IconButton onClick={listOfItems} >
+            <AddCircleIcon />
+            </IconButton>
+          </div>
 
         <ol>
           {Items.map((itemval,index)=>{
@@ -46,6 +55,7 @@ const App =() =>{
                   />
           })}
         </ol>
+        </div>
         </div>
     </div>
   </>)
