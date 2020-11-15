@@ -1,31 +1,43 @@
-import React from "react"
-import Item from "./item"
-import todosData from "./data"
-class App extends React.Component{
-  constructor(){
-    super()
-    this.state = { 
-      todos : todosData
-      
-    }
-    this.handlechange = this.handlechange.bind();
-  }
-  handlechange(id){
-    console.log(id)
+import React,{useState} from "react"
+import ToDoList from "./ToDoList"
+
+const App =() =>{
+
+  const [inputList, setInputList] = useState("");
+  const [Items,setItems] = useState([]);
+
+  const itemEvent =(event)=> {
+    setInputList(event.target.value);
+  };
+
+  const listOfItems =()=>{
+    setItems((oldItems)=>{
+      return [...oldItems,inputList];
+    });
+
+    setInputList('')
   }
 
-  render(){
-   const todositem= this.state.todos.map(item => <Item 
-                                                  key={item.id} 
-                                                  id={item.id} 
-                                                  conten={item.text} 
-                                                  status={item.completed}
-                                                  handlechange={this.handlechange}/>)
-     return(
-       <div>
-       {todositem}    
-       </div>
-       )
-   }
-} 
-export default App  
+  return (<>
+    <div className='main_div'>
+      <div className='center_div'>
+        <br/>
+        <h1> Todo List</h1>
+        <br/>
+        <input value={inputList} type="text" placeholder='Add items' onChange={itemEvent}/>
+        <button onClick={listOfItems} >+</button>
+
+
+        <ol>
+          {Items.map((itemval)=>{
+          return   <ToDoList 
+              text ={itemval}
+            />
+          })}
+        </ol>
+        </div>
+    </div>
+  </>)
+}
+
+export default App;
