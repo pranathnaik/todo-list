@@ -34,6 +34,7 @@ const App =() =>{
   return (<>
     <div className='main_div'>
       <div className='center_div'>
+      
         <br/>
         <div className="items">
         <h1> Todo List</h1>
@@ -41,7 +42,7 @@ const App =() =>{
           <div className="input">
             <TextField value={inputList}  onChange={itemEvent} color="secondary" label="Add Todos" variant="outlined" />
             <IconButton onClick={listOfItems} >
-            <AddCircleIcon />
+            <AddCircleIcon fontSize="large" />
             </IconButton>
           </div>
 
