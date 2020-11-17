@@ -1,3 +1,5 @@
+![alt text](https://ibb.co/b5jsKGz)
+
 ### `npm start`
 
 Runs the app in the development mode.\
