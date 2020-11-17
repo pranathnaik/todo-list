@@ -31,25 +31,24 @@ const App = () => {
 
   return (
     <>
-      <div className="main_div">
-        <div className="center_div">
-          <br />
-          <div className="items">
+      <div className="center_div">
+        <div className="items">
+          <div className="appname">
             <h1> Todo List</h1>
-            <br />
-            <div className="input">
-              <TextField
-                value={inputList}
-                onChange={itemEvent}
-                color="secondary"
-                label="Add Todos"
-                variant="outlined"
-              />
-              <IconButton onClick={listOfItems}>
-                <AddCircleIcon fontSize="large" />
-              </IconButton>
-            </div>
-
+          </div>
+          <div className="input">
+            <TextField
+              value={inputList}
+              onChange={itemEvent}
+              color="secondary"
+              label="Add Todos"
+              variant="outlined"
+            />
+            <IconButton onClick={listOfItems}>
+              <AddCircleIcon fontSize="large" />
+            </IconButton>
+          </div>
+          <div className="main-content">
             <ol>
               {Items.map((itemval, index) => {
                 return (
