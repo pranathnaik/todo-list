@@ -3,7 +3,6 @@ import ToDoList from "./ToDoList";
 import "./style.css";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import IconButton from "@material-ui/core/IconButton";
-import TextField from "@material-ui/core/TextField";
 
 const App = () => {
   const [inputList, setInputList] = useState("");
@@ -37,13 +36,7 @@ const App = () => {
             <h1> Todo List</h1>
           </div>
           <div className="input">
-            <TextField
-              value={inputList}
-              onChange={itemEvent}
-              color="secondary"
-              label="Add Todos"
-              variant="outlined"
-            />
+            <input value={inputList} onChange={itemEvent} label="Add Todos" />
             <IconButton onClick={listOfItems}>
               <AddCircleIcon fontSize="large" />
             </IconButton>
